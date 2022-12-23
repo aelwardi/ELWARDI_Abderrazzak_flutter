@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:myapplication/screens/homepage.dart';
 import 'package:myapplication/screens/signup.dart';
 import 'package:myapplication/widgets/mybutton.dart';
 
@@ -43,7 +44,7 @@ bool obserText = true;
 class _LoginState extends State<Login> {
   Widget _buildAllParty(){
     return Container(
-        height: 300,
+        height: 500,
         width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

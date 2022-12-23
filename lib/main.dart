@@ -2,7 +2,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:myapplication/screens/cartsreen.dart';
+import 'package:myapplication/screens/chekout.dart';
 import 'package:myapplication/screens/homepage.dart';
+import 'package:myapplication/screens/login.dart';
+import 'package:myapplication/screens/welcomescreen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +23,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xffaf7373),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomePage(),
+      home: WelcomeScreen(),
     );
   }
 }

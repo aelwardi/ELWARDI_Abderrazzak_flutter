@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapplication/screens/chekout.dart';
 
 class CartScreen extends StatefulWidget {
   final double price;
@@ -115,7 +116,17 @@ class _CartScreenState extends State<CartScreen> {
           bottom: 10,
         ),
         child: ElevatedButton(
-          onPressed: (){},
+          onPressed: (){
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                  builder: (ctx)=>CheckOut(
+                      image: widget.image,
+                      name: widget.name,
+                      price: widget.price
+                  ),
+              ),
+            );
+          },
           child: Text(
               "Continus",
           ),
