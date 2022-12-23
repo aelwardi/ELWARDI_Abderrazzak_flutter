@@ -1,6 +1,7 @@
 // @dart=2.9
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:myapplication/screens/detailscreen.dart';
 import 'package:myapplication/screens/homepage.dart';
 import 'package:myapplication/screens/listproduct.dart';
 import 'package:myapplication/screens/login.dart';
