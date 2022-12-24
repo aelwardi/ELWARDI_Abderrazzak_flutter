@@ -9,8 +9,8 @@ class SingleProduct extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Container(
-        height: 250,
-        width: 160,
+        height: 300,
+        width: 175,
         child: Column(
           children: <Widget>[
             Container(
@@ -21,7 +21,7 @@ class SingleProduct extends StatelessWidget {
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.fill,
-                    image: AssetImage("images/$image"),
+                    image: NetworkImage(image),
                   ),
                 ),
               ),

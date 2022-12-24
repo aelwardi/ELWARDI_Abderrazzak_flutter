@@ -4,7 +4,8 @@ import 'package:myapplication/widgets/singeproduct.dart';
 
 class ListProduct extends StatelessWidget {
   final String name;
-  ListProduct({required this.name});
+  final snapShot;
+  ListProduct({required this.name, required this.snapShot});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,22 +67,19 @@ class ListProduct extends StatelessWidget {
                 SizedBox(height: 10,),
                 Container(
                   height: 700,
-                  child: GridView.count(
-                    mainAxisSpacing: 10,
-                      childAspectRatio: 0.6,
+                  child: GridView.builder(
+                    itemCount: snapShot.data.docs.length,
+                    itemBuilder: (ctx, index)=>SingleProduct(
+                        image: snapShot.data.docs[index]["image"],
+                        price: snapShot.data.docs[index]["price"],
+                        name: snapShot.data.docs[index]["name"]),
+                    scrollDirection: Axis.vertical,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                    children: <Widget>[
-                      SingleProduct(name: "Man Long T-Shirt", price: 30.0, image: "man.jpg"),
-                      SingleProduct(name: "Women Long T-Shirt", price: 30.0, image: "women.jpg"),
-                      SingleProduct(name: "Man Long T-Shirt", price: 30.0, image: "man.jpg"),
-                      SingleProduct(name: "Women Long T-Shirt", price: 30.0, image: "women.jpg"),
-                      SingleProduct(name: "Man Long T-Shirt", price: 30.0, image: "man.jpg"),
-                      SingleProduct(name: "Women Long T-Shirt", price: 30.0, image: "women.jpg"),
-                      SingleProduct(name: "Man Long T-Shirt", price: 30.0, image: "man.jpg"),
-                      SingleProduct(name: "Women Long T-Shirt", price: 30.0, image: "women.jpg"),
-                      SingleProduct(name: "Man Long T-Shirt", price: 30.0, image: "man.jpg"),
-                      SingleProduct(name: "Women Long T-Shirt", price: 30.0, image: "women.jpg"),
-                    ],
+                      childAspectRatio: 0.7,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10
+                    ),
                   ),
                 ),
               ],

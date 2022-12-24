@@ -1,11 +1,11 @@
 // @dart=2.9
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:myapplication/screens/cartsreen.dart';
-import 'package:myapplication/screens/chekout.dart';
 import 'package:myapplication/screens/homepage.dart';
 import 'package:myapplication/screens/login.dart';
 import 'package:myapplication/screens/welcomescreen.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,11 +19,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        primaryColor: Color(0xffaf7373),
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+      theme: ThemeData(),
+      debugShowCheckedModeBanner: false,
+      home: StreamBuilder(
+        stream: FirebaseAuth.instance.userChanges(),
+        builder: (ctx,snapShot){
+          if(snapShot.hasData){
+            return HomePage();
+          }
+          else{
+            return HomePage();
+          }
+        },
       ),
-      home: WelcomeScreen(),
     );
   }
 }
