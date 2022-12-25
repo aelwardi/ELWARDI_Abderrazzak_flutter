@@ -9,15 +9,15 @@ class SingleProduct extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Container(
-        height: 300,
-        width: 175,
+        height: 260,
+        width: 170,
         child: Column(
           children: <Widget>[
             Container(
               padding: EdgeInsets.symmetric(vertical: 10,),
               child: Container(
                 height: 190,
-                width: 150,
+                width: 170,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.fill,

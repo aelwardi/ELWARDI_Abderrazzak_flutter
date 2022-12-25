@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:myapplication/model/product.dart';
 import 'package:myapplication/screens/homepage.dart';
 import 'package:myapplication/widgets/singeproduct.dart';
 
 class ListProduct extends StatelessWidget {
   final String name;
-  final snapShot;
-  ListProduct({required this.name, required this.snapShot});
+  final List<Product> snapShot;
+  ListProduct({
+    required this.name,
+    required this.snapShot,
+  });
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,19 +71,14 @@ class ListProduct extends StatelessWidget {
                 SizedBox(height: 10,),
                 Container(
                   height: 700,
-                  child: GridView.builder(
-                    itemCount: snapShot.data.docs.length,
-                    itemBuilder: (ctx, index)=>SingleProduct(
-                        image: snapShot.data.docs[index]["image"],
-                        price: snapShot.data.docs[index]["price"],
-                        name: snapShot.data.docs[index]["name"]),
+                  child: GridView.count(
+                    crossAxisCount: 2,
                     scrollDirection: Axis.vertical,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      childAspectRatio: 0.7,
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 10
-                    ),
+                    children: snapShot.map((e) => SingleProduct(
+                        image: e.image,
+                        price: e .price,
+                        name: e.name)
+                    ).toList(),
                   ),
                 ),
               ],
